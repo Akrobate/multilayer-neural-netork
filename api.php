@@ -26,4 +26,6 @@ require_once(PATH_LIBS . "layer.class.php");
 require_once(PATH_LIBS . "neuron.class.php"); 
 require_once(PATH_LIBS . "neuralconnection.class.php");
 
+require_once(PATH_LIBS . "mlp.process.class.php");
+
 require_once(PATH_LIBS . "mlp.renderer.class.php");

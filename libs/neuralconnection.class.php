@@ -28,4 +28,22 @@ class NeuralConnection {
 		$this->weight = $weight;
 	}
 
+	
+	public function getNeuronTo() {
+		return $this->neuron_to;
+	}
+
+	
+	public function setNeuronTo($neuron_to) {
+		$this->neuron_to = $neuron_to;
+	}
+
+	public function getNeuronFrom() {
+		return $this->neuron_from;
+	}
+
+	
+	public function setNeuronFrom($neuron_from) {
+		$this->neuron_from = $neuron_from;
+	}
 }

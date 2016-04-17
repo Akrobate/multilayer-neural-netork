@@ -7,6 +7,8 @@ class Neuron {
 
 	private $value;
 	
+	private $delta;
+	
 	#theorical test
 	private $connections_from_list;
 	private $connections_to_list;	
@@ -28,6 +30,17 @@ class Neuron {
 	public function init($min_value, $max_value) {
 		$this->value = rand($min_value, $max_value);
 	}
+	
+	
+	
+	public function getDelta() {
+		return $this->delta;
+	}
+	
+	public function setDelta($delta) {
+		$this->delta = $delta;
+	}
+	
 	
 	public function getValue() {
 		return $this->value;

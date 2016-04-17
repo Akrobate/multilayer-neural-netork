@@ -13,6 +13,10 @@ class MLP {
 	private $all_neurons_list;
 	private $all_neural_connection_list;
 
+	private $input_values_list;
+
+	private $expected_values;
+
 	function __construct($nb_neurons, $nb_layers, $nb_neurons_out_layer) {
 	
 		$this->nb_layers = $nb_layers;
@@ -95,6 +99,62 @@ class MLP {
 	
 	public function getAllNeuralConnections() {
 		return $this->all_neural_connection_list;	
+	}	
+	
+	
+	/**
+	 *	Methode permettant de definir le point d'entrée 
+	 *	du réseau de neurones
+	 */
+
+	public function setMLPInputValues($values_list) {
+	
+		$this->input_values_list = $values_list;
+		$input_layer = $this->layers[0];
+	
+		$i = 0;
+		foreach($input_layer->getNeurons() as &$neuron) {
+			$neuron->setValue($this->input_values_list[$i]);
+			$i++;
+		
+		}
+	}
+	
+	
+	/**
+	 *	Methode permettant de recuperer le resultat
+	 *	renvoi la liste de poids
+	 */
+
+	public function getMLPOutValues() {
+	
+		$out_layer_addr = count($this->layers) - 1;
+
+		$out_layer = $this->layers[$out_layer_addr];
+		$out = array();
+	
+		$i = 0;
+		foreach($out_layer->getNeurons() as &$neuron) {
+			$out[] = $neuron->getValue();
+		}
+		
+		return $out;
+		
+	}
+	
+	
+	public function setExpectedValues($expected_values) {
+	
+		$this->expected_values = $expected_values;
+	
+		
+	}	
+	
+	
+	public function getExpectedValues() {
+	
+		return $this->expected_values;
+	
 	}	
 	
 };
