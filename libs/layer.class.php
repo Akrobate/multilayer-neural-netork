@@ -27,6 +27,10 @@ class Layer {
 		return $this->neurons;
 	}
 	
+	public function setNeurons($neurons) {
+		$this->neurons = $neurons;
+	}
+	
 	
 };
 
